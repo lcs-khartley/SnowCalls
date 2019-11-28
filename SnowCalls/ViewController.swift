@@ -36,36 +36,36 @@ class ViewController: UIViewController {
             var convertedNumber = ""
             for character in piece {
                 switch character {
-                case "a", "b", "c", "A", "B", "C":
+                case "0":
+                    convertedNumber = "0"
+                case "1":
+                    convertedNumber = "1"
+                case "2", "a", "b", "c", "A", "B", "C":
                     convertedNumber = "2"
-                case "d", "e", "f", "D", "E", "F":
+                case "3", "d", "e", "f", "D", "E", "F":
                     convertedNumber = "3"
-                case "g", "h", "i", "G", "H", "I":
+                case "4", "g", "h", "i", "G", "H", "I":
                     convertedNumber = "4"
-                case "j", "k", "l", "J", "K", "L":
+                case "5", "j", "k", "l", "J", "K", "L":
                     convertedNumber = "5"
-                case "m", "n", "o", "M", "N", "O":
+                case "6", "m", "n", "o", "M", "N", "O":
                     convertedNumber = "6"
-                case "p", "q", "r", "s", "P", "Q", "R", "S":
+                case "7", "p", "q", "r", "s", "P", "Q", "R", "S":
                     convertedNumber = "7"
-                case "t", "u", "v", "T", "U", "V":
+                case "8", "t", "u", "v", "T", "U", "V":
                     convertedNumber = "8"
-                case "w", "x", "y", "z", "W", "X", "Y", "Z":
+                case "9", "w", "x", "y", "z", "W", "X", "Y", "Z":
                     convertedNumber = "9"
                 default:
-                    break
+                    convertedNumber = ""
                 }
-                
-                
+                 textOutput.text += convertedNumber
             }
-            
-            
-            
-            
-            
+           
         }
         
         
         
+    }
+    
 }
-
