@@ -8,7 +8,9 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+
+// UITextViewDelegate - just means that we promise to impliment certain methods on this class, or, also can mean some functionality is now made available to us
+class ViewController: UIViewController, UITextViewDelegate {
     
     //MARK: Properties
     
@@ -19,9 +21,18 @@ class ViewController: UIViewController {
     
     //MARK: Methods
     
+    
+    // This method runs ONCE after the view first loads
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        // Make this class be the delegate for the input text view
+        inputText.delegate = self
+        
+        // Give the focus to the input textview when the program begins
+        inputText.becomeFirstResponder()
+        
     }
     
     @IBAction func convert(_ sender: Any) {
@@ -41,8 +52,10 @@ class ViewController: UIViewController {
             for character in piece {
                 
                 //If the phone number is less than 10 characters, keep doing the loop
-                if convertedNumber.count < 10 {
-                    
+                if convertedNumber.count < 12 {
+                    if convertedNumber.count == 3 || convertedNumber.count == 7{
+                        convertedNumber += "-"
+                    }
                     
                     //Convert the letters into numbers for the phone number
                     switch character {
@@ -72,6 +85,8 @@ class ViewController: UIViewController {
                 }
             }
             
+            //convertedNumber.insert("-", at: 3)
+            
             // Puts the converted phone number into the output box for the user
             textOutput.text += convertedNumber + "\n"
             
@@ -80,6 +95,15 @@ class ViewController: UIViewController {
         
         
         
+    }
+    
+    // MARK: UITextViewDelegate Methods
+    
+    // Called automatically when the context of the text view are changed
+    func textViewDidChange(_ textView: UITextView) {
+        
+        //Reset the output view
+        textOutput.text = ""
     }
     
 }
